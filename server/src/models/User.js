@@ -3,6 +3,11 @@ import { DataTypes } from 'sequelize'
 import { hashString } from '../helpers/hash.js'
 import bcrypt from 'bcrypt'
 
+export const ROLES = {
+  ADMIN: 'admin',
+  USER: 'user'
+}
+
 export const UserModel = sequelize.define('User', {
   username: {
     type: DataTypes.STRING,
@@ -16,6 +21,10 @@ export const UserModel = sequelize.define('User', {
   password: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  role: {
+    type: DataTypes.ENUM(ROLES.ADMIN, ROLES.USER),
+    defaultValue: ROLES.ADMIN
   }
 }, {
   timestamps: true

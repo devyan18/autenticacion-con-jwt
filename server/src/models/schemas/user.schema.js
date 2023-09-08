@@ -8,11 +8,7 @@ export const createUserSchema = [
   body('password')
     .exists()
     .notEmpty()
-    .isString()
-    .isStrongPassword({
-      minLength: 8,
-      minNumbers: 1
-    }),
+    .isString(),
   body('email')
     .exists()
     .notEmpty()

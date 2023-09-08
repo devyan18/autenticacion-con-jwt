@@ -7,6 +7,7 @@ import { environments } from './src/config/environments.js'
 import { startDb } from './src/config/database.js'
 import { userRouter } from './src/routes/users.routes.js'
 import { authRouter } from './src/routes/auth.routes.js'
+import { testRouter } from './src/routes/test.routes.js'
 
 import './src/models/User.js'
 
@@ -23,6 +24,8 @@ app.use(helmet())
 app.use('/api/users', userRouter)
 
 app.use('/auth', authRouter)
+
+app.use('/test', testRouter)
 
 app.listen(environments.PORT, async () => {
   console.log(`server on port ${environments.PORT}`)
